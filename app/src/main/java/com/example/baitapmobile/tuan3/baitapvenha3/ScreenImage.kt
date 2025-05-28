@@ -46,7 +46,7 @@ fun ImageScreen(navController: NavController) {
             ){
                 // Text centered within the row
                 Text(
-                    text = "Images",
+                    text = "Detail",
                     fontSize = 30.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color(0xDD2196F3),
@@ -57,10 +57,12 @@ fun ImageScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(46.dp))
 
         Image(
-            painter = painterResource(id = R.drawable.h1),
+            painter = painterResource(id = R.drawable.expimage),
             contentDescription = "Hinh anh 1"
         )
-        Text("https://giaothongvantaitphcm.edu.vn/wp-content/uploads/2025/01/Logo-GTVT.png", textAlign = TextAlign.Center)
+        Text("“The only way to do great work \n" +
+                "is to love what you do”",
+            textAlign = TextAlign.Center)
         Image(
             painter = painterResource(id = R.drawable.h2),
             contentDescription = "Hinh anh 2"

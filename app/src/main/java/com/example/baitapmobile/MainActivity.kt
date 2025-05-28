@@ -25,6 +25,9 @@ import com.example.baitapmobile.tuan3.TextFieldScreen
 import com.example.baitapmobile.tuan3.TextScreen
 import com.example.baitapmobile.tuan3.baitapvenha3.UIComponentsList
 import com.example.baitapmobile.tuan3.baituan3
+import com.example.baitapmobile.tuan4.Screen2
+import com.example.baitapmobile.tuan4.Screen3
+import com.example.baitapmobile.tuan4.StartScreen
 import com.example.baitapmobile.ui.theme.BaitapMobileTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,13 +38,15 @@ class MainActivity : ComponentActivity() {
             BaitapMobileTheme {
                 val navHostController = rememberNavController()
                 NavHost(navHostController, startDestination = "home"){
-                    composable("home") { UIComponentsList(navHostController) } // Truyền navController vào UIComponentsList
+                    composable("home") { StartScreen(navHostController) } // Truyền navController vào UIComponentsList
                     composable("text") { TextScreen(navHostController) }
                     composable("image") { ImageScreen(navHostController) }
                     composable("textfield") { TextFieldScreen(navHostController) }
                     composable("passwordfield") { PassFieldScreen(navHostController) }
                     composable("layout") { LayoutScreen(navHostController) }
                     composable("scaffold") { ScaffoldScreen(navHostController) }
+                    composable("list1") { Screen2(navHostController) }
+                    composable("screen3") { Screen3(navHostController) }
 
                 }
 //                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->

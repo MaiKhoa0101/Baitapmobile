@@ -34,37 +34,44 @@ fun ScaffoldScreen(navHostController: NavHostController) {
 @Composable
 fun TopBar(navHostController: NavHostController){
     Spacer(modifier = Modifier.height(106.dp))
-    Box(modifier= Modifier
-        .height(100.dp)
-        .fillMaxWidth()
-        .background(Color.Cyan))
-    {
-        // Button at the start
-        IconButton(
-            onClick = { navHostController.popBackStack() }
-        ) {
-            Icon(
-                imageVector = Icons.Default.ArrowBack, // Arrow icon
-                contentDescription = "Navigate",
-                tint = Color(0xDD2196F3), // Make the arrow red
-                modifier = Modifier.size(30.dp)
-            )
+    Column() {
+
+
+        Box(
+            modifier = Modifier
+                .height(100.dp)
+                .fillMaxWidth()
+                .background(Color.Cyan)
+        )
+        {
+            // Button at the start
+            IconButton(
+                onClick = { navHostController.popBackStack() }
+            ) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack, // Arrow icon
+                    contentDescription = "Navigate",
+                    tint = Color(0xDD2196F3), // Make the arrow red
+                    modifier = Modifier.size(30.dp)
+                )
+            }
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                // Text centered within the row
+                Text(
+                    text = "Scaffold",
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xDD2196F3),
+                    textAlign = TextAlign.Center
+                )
+            }
         }
-        Column (
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
-            // Text centered within the row
-            Text(
-                text = "Scaffold",
-                fontSize = 30.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xDD2196F3),
-                textAlign = TextAlign.Center
-            )
-        }
-    }
-    Spacer(modifier = Modifier.height(46.dp))}
+        Spacer(modifier = Modifier.height(46.dp))}
+
+}
 @Composable
 fun Body(modifier: Modifier){
     Column (modifier = modifier){
