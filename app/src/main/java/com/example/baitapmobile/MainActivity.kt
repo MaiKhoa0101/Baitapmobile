@@ -28,6 +28,8 @@ import com.example.baitapmobile.tuan3.baituan3
 import com.example.baitapmobile.tuan4.Screen2
 import com.example.baitapmobile.tuan4.Screen3
 import com.example.baitapmobile.tuan4.StartScreen
+import com.example.baitapmobile.tuan5.bai5_2
+import com.example.baitapmobile.tuan6.RequestPermissionUI
 import com.example.baitapmobile.ui.theme.BaitapMobileTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,7 +39,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BaitapMobileTheme {
                 val navHostController = rememberNavController()
-                NavHost(navHostController, startDestination = "home"){
+                NavHost(navHostController, startDestination = "tuan6"){
                     composable("home") { StartScreen(navHostController) } // Truyền navController vào UIComponentsList
                     composable("text") { TextScreen(navHostController) }
                     composable("image") { ImageScreen(navHostController) }
@@ -47,6 +49,8 @@ class MainActivity : ComponentActivity() {
                     composable("scaffold") { ScaffoldScreen(navHostController) }
                     composable("list1") { Screen2(navHostController) }
                     composable("screen3") { Screen3(navHostController) }
+                    composable ("bai5_2"){ bai5_2()   }
+                    composable ("tuan6"){ RequestPermissionUI(navHostController)   }
 
                 }
 //                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
