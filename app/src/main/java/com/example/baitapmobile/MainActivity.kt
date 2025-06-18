@@ -8,9 +8,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.baitapmobile.tuan2.BaiTapVeNha2
 import com.example.baitapmobile.tuan2.bai2
 import com.example.baitapmobile.tuan3.BaiTuan3_2
@@ -30,6 +32,8 @@ import com.example.baitapmobile.tuan4.Screen3
 import com.example.baitapmobile.tuan4.StartScreen
 import com.example.baitapmobile.tuan5.bai5_2
 import com.example.baitapmobile.tuan6.RequestPermissionUI
+import com.example.baitapmobile.tuan6.coroutine.CryptoDashboardScreen
+import com.example.baitapmobile.tuan6.coroutine.InforCoint
 import com.example.baitapmobile.ui.theme.BaitapMobileTheme
 
 class MainActivity : ComponentActivity() {
@@ -39,7 +43,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BaitapMobileTheme {
                 val navHostController = rememberNavController()
-                NavHost(navHostController, startDestination = "tuan6"){
+                NavHost(navHostController, startDestination = "coroutine"){
                     composable("home") { StartScreen(navHostController) } // Truyền navController vào UIComponentsList
                     composable("text") { TextScreen(navHostController) }
                     composable("image") { ImageScreen(navHostController) }
@@ -51,7 +55,15 @@ class MainActivity : ComponentActivity() {
                     composable("screen3") { Screen3(navHostController) }
                     composable ("bai5_2"){ bai5_2()   }
                     composable ("tuan6"){ RequestPermissionUI(navHostController)   }
-
+                    composable ("coroutine"){ CryptoDashboardScreen(navHostController)   }
+                    composable ("coinDetail/{coin}"){ InforCoint()   }
+                    composable(
+                        "coinDetail/{coin}",
+                        arguments = listOf(navArgument("coin") { type = NavType.StringType })
+                    ) { backStackEntry ->
+                        val coin = backStackEntry.arguments?.getString("coin") ?: ""
+                        //InforCoint(coin)
+                    }
                 }
 //                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     //Tuan 1

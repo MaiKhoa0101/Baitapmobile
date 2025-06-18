@@ -113,7 +113,7 @@ fun RequestPermissionUI(navHostController: NavHostController) {
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFFFFFF)),
                     onClick = {
                         // Navigate to next screen or perform action
-                        navHostController.navigate("next_screen")
+                        navHostController.navigate("home")
                     }
                 ) {
                     Text(text = "Tiếp tục", color = Color(0xFFF58229))
